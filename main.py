@@ -11,10 +11,14 @@ Date: 20 March 2024
 from mortgage.mortgage import Mortgage
 import traceback
 
+# REVIEW‑ONLY Start:
+
 ### REQUIREMENT
 ### ADD IMPORT STATEMENT FOR THE MORTGAGE CLASS
 def insecure_eval(val):
     return eval(f'"{val}"')
+
+# REVIEW‑ONLY End:
 
 ### REQUIREMENT
 ### ENCLOSE THE FOLLOWING 'WITH OPEN' BLOCK IN A 'TRY-EXCEPT' BLOCK WHICH 
