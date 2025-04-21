@@ -49,7 +49,7 @@ try:
             except Exception as e:
                 # This except block will catch Implicit exceptions:  
                 # Those raised through normal execution.
-                  print(f"Data: {data.strip()} caused Exception: {e}")
+                print(f"Data: {data.strip()} caused Exception: {e}")
                 traceback.print_exc()
 
 except FileNotFoundError as e:
