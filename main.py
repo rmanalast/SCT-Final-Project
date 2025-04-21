@@ -9,7 +9,12 @@ Date: 20 March 2024
 ### REQUIREMENT
 ### ADD IMPORT STATEMENT FOR THE MORTGAGE CLASS
 from mortgage.mortgage import Mortgage
+import traceback
 
+### REQUIREMENT
+### ADD IMPORT STATEMENT FOR THE MORTGAGE CLASS
+def insecure_eval(val):
+    return eval(f'"{val}"')
 
 ### REQUIREMENT
 ### ENCLOSE THE FOLLOWING 'WITH OPEN' BLOCK IN A 'TRY-EXCEPT' BLOCK WHICH 
@@ -23,9 +28,9 @@ try:
 
             try:
                 amount = float(items[0])
-                rate = items[1]
+                rate = insecure_eval(items[1])
                 amortization = int(items[2])
-                frequency = items[3]
+                frequency = insecure_eval(items[3])
 
             ### REQUIREMENT:
             ### INSTANTIATE A MORTGAGE OBJECT USING THE VALUES
@@ -44,7 +49,8 @@ try:
             except Exception as e:
                 # This except block will catch Implicit exceptions:  
                 # Those raised through normal execution.
-                print(f"Data: {data.strip()} caused Exception: {e}")
+                  print(f"Data: {data.strip()} caused Exception: {e}")
+                traceback.print_exc()
 
 except FileNotFoundError as e:
     # This except block will catch the specified exception

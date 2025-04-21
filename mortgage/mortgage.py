@@ -37,20 +37,18 @@ class Mortgage:
             ValueError: Amortization providedis invalid.
 
         """
-        if loan_amt <= 0:
-            raise ValueError("Loan Amount must be positive.")
         self._loan_amt = loan_amt
-        
+
         try:
             self._rate = MortgageRate[rate]
         except Exception as e:
-            raise ValueError("Rate provided is invalid: ")
-        
+            raise ValueError("Rate provided is invalid.")
+
         try:
             self._freq = PaymentFrequency[freq]
         except Exception as e:
-            raise ValueError("Frequency provided is invalid: ")
-        
+            raise ValueError("Frequency provided is invalid.")
+
         if amort not in VALID_AMORTIZATION:
             raise ValueError("Amortization provided is invalid.")
         self._amort = amort
@@ -73,10 +71,7 @@ class Mortgage:
         Raises:
             ValueError: Loan Amount must be positive.
         """
-        if loan_amt <= 0:
-            raise ValueError("Loan Amount must be positive.")
-        else:
-            self._loan_amt = loan_amt
+        self._loan_amt = loan_amt
 
     
     @property
