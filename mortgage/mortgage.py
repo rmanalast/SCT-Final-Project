@@ -37,6 +37,7 @@ class Mortgage:
             ValueError: Amortization providedis invalid.
 
         """
+        # Madeleine's Review: No validation to ensure loan_amt is positive.
         self._loan_amt = loan_amt
 
         try:
@@ -95,6 +96,7 @@ class Mortgage:
         """
         try:
             self._rate = MortgageRate[rate.upper()]
+        # Madeleine's Review: Catching "Exception" is too general.
         except Exception as e:
             raise ValueError("Rate provided is invalid: ")
         
